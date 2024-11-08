@@ -1,15 +1,34 @@
+import { useState } from 'react'
 import * as S from './styles'
 
-const Tarefa = () => {
+type props = {
+  titulo: string
+  prioridade: string
+  status: string
+  descricao: string
+}
+
+const Tarefa = ({ descricao, prioridade, status, titulo }: props) => {
+  const [estaEditando, setEstaEditando] = useState(false)
+
   return (
     <S.Card>
-      <S.Titulo>Nome da Tarefa</S.Titulo>
-      <S.Tag>Importante</S.Tag>
-      <S.Tag>Pendente</S.Tag>
-      <S.Descricao />
+      <S.Titulo>{titulo}</S.Titulo>
+      <S.Tag>{prioridade}</S.Tag>
+      <S.Tag>{status}</S.Tag>
+      <S.Descricao value={descricao} />
       <S.BarraAcoes>
-        <S.Botao>Editar</S.Botao>
-        <S.Botao>Remover</S.Botao>
+        {estaEditando ? (
+          <>
+            <S.Botao>Salvar</S.Botao>
+            <S.Botao onClick={() => setEstaEditando(false)}>Cancelar</S.Botao>
+          </>
+        ) : (
+          <>
+            <S.Botao onClick={() => setEstaEditando(true)}>Editar</S.Botao>
+            <S.Botao>Excluir</S.Botao>
+          </>
+        )}
       </S.BarraAcoes>
     </S.Card>
   )
