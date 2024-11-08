@@ -1,8 +1,31 @@
+import Tarefa from '../../components/FiltroCard/Tarefa'
+import { Container } from './styles'
+
 const ListaDeTarefas = () => {
   return (
-    <main>
+    <Container>
       <p>2 Tarefas marcadas como: &quot;Categoria&quot; e &quot;Termo&quot;</p>
-    </main>
+      <ul>
+        <li>
+          <Tarefa />
+        </li>
+        <li>
+          <Tarefa />
+        </li>
+        <li>
+          <Tarefa />
+        </li>
+        <li>
+          <Tarefa />
+        </li>
+        <li>
+          <Tarefa />
+        </li>
+        <li>
+          <Tarefa />
+        </li>
+      </ul>
+    </Container>
   )
 }
 
