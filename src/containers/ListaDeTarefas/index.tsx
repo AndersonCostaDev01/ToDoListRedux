@@ -1,25 +1,38 @@
-import Tarefa from '../../components/FiltroCard/Tarefa'
-import { Titulo } from '../../components/FiltroCard/Tarefa/styles'
+import Tarefa from '../../components/Tarefa'
+import { Titulo } from '../../components/Tarefa/styles'
 import { Container } from './styles'
+import * as enums from '../../utils/enums/Tarefas'
 
 const Tarefas = [
   {
     titulo: 'Estudar Typescript',
-    prioridade: 'Urgente',
-    status: 'Pendente',
+    prioridade: enums.Prioridade.URGENTE,
+    status: enums.Status.PENDENTE,
     descricao: 'Estudar Typescript para atividade da semana'
   },
   {
     titulo: 'Estudar React',
-    prioridade: 'Urgente',
-    status: 'Concluida',
+    prioridade: enums.Prioridade.URGENTE,
+    status: enums.Status.CONCLUIDA,
     descricao: 'Estudar React para atividade da semana'
   },
   {
     titulo: 'Exame medico',
-    prioridade: 'Normal',
-    status: 'Pendente',
+    prioridade: enums.Prioridade.NORMAL,
+    status: enums.Status.PENDENTE,
     descricao: 'Exame medico para saber sobre estado de saude'
+  },
+  {
+    titulo: 'Estudar React',
+    prioridade: enums.Prioridade.NORMAL,
+    status: enums.Status.CONCLUIDA,
+    descricao: 'Estudar React para atividade da semana'
+  },
+  {
+    titulo: 'Sair com os amigos',
+    prioridade: enums.Prioridade.NORMAL,
+    status: enums.Status.PENDENTE,
+    descricao: 'Sair com os amigos para atividade em grups'
   }
 ]
 
