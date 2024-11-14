@@ -35,6 +35,13 @@ const initialState: TarefasState = {
       prioridade: enums.Prioridade.NORMAL,
       status: enums.Status.CONCLUIDA,
       descricao: 'Fazer a janta para comer apos os estudos '
+    },
+    {
+      id: 5,
+      titulo: 'Estudar Javascript',
+      prioridade: enums.Prioridade.NORMAL,
+      status: enums.Status.CONCLUIDA,
+      descricao: 'Estudar Javascript para atividade da semana'
     }
   ]
 }
