@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Tarefa from '../../components/Tarefa'
 import { Titulo } from '../../components/Tarefa/styles'
-import { Container } from './styles'
+import { Container, Resultado } from './styles'
 import { RootReducer } from '../../store'
 
 const ListaDeTarefas = () => {
@@ -12,9 +12,9 @@ const ListaDeTarefas = () => {
 
   const filtraTarefas = () => {
     let tarefasFiltradas = itens
-    if (termo !== undefined) {
-      tarefasFiltradas = tarefasFiltradas.filter(
-        (item) => item.titulo.toLowerCase().search(termo.toLowerCase()) >= 0
+    if (termo) {
+      tarefasFiltradas = tarefasFiltradas.filter((item) =>
+        item.titulo.toLowerCase().includes(termo.toLowerCase())
       )
 
       if (criterio === 'prioridade') {
@@ -26,26 +26,37 @@ const ListaDeTarefas = () => {
           (item) => item.status === valor
         )
       }
+    }
+    return tarefasFiltradas
+  }
 
-      return tarefasFiltradas
+  const tarefas = filtraTarefas()
+
+  const verificarAtivo = () => {
+    if (criterio === 'todas') {
+      return (
+        <>
+          {tarefas.length} Tarefa(s) marcada(s) como: {`"${criterio}"`}{' '}
+          {termo && `com o termo "${termo}"`}
+        </>
+      )
     } else {
-      return itens
+      return (
+        <>
+          {tarefas.length} Tarefa(s) marcada(s) como:{' '}
+          {`"${criterio}: ${valor}"`} {termo && `com o termo "${termo}"`}
+        </>
+      )
     }
   }
 
   return (
     <Container>
-      <p>
-        2 Tarefas marcadas como: &quot;Categoria&quot; e &quot;{termo}&quot;
-      </p>
+      <Resultado>{verificarAtivo()}</Resultado>
+
       <ul>
-        <li>{termo}</li>
-        <li>{criterio}</li>
-        <li>{valor}</li>
-      </ul>
-      <ul>
-        {filtraTarefas().map((tarefa) => (
-          <li key={tarefa.titulo}>
+        {tarefas.map((tarefa) => (
+          <li key={tarefa.id}>
             <Titulo>{tarefa.titulo}</Titulo>
             <Tarefa
               id={tarefa.id}

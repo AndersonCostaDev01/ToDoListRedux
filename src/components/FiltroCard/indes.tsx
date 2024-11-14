@@ -44,11 +44,9 @@ const FiltroCard = (props: props) => {
   const contador = contaTarefas()
 
   return (
-    <S.Shadow>
-      <S.Card ativo={ativo} onClick={filtrar}>
-        <S.Contador>{contador}</S.Contador> <S.Label>{props.legenda}</S.Label>
-      </S.Card>
-    </S.Shadow>
+    <S.Card ativo={ativo} onClick={filtrar}>
+      <S.Contador>{contador}</S.Contador> <S.Label>{props.legenda}</S.Label>
+    </S.Card>
   )
 }
 

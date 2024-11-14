@@ -22,9 +22,3 @@ export const Contador = styled.span`
 export const Label = styled.span`
   font-size: 14px;
 `
-export const Shadow = styled.div`
-  :hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
-    transition: box-shadow 0.5s ease-in-out;
-  }
-`
