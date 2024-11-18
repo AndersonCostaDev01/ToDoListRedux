@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
-import * as S from './styles'
 import { RootReducer } from '../../store'
 import { alterarFiltro } from '../../store/reducers/filtro'
+import * as S from './styles'
 import * as enums from '../../utils/enums/Tarefas'
 
 export type props = {
