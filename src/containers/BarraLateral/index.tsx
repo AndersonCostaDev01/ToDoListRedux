@@ -4,6 +4,7 @@ import FiltroCard from '../../components/FiltroCard/indes'
 import { RootReducer } from '../../store'
 import { alteraTermo } from '../../store/reducers/filtro'
 /** Importação dos estilos */
+import { Input } from '../../styles'
 import * as S from './styles'
 import * as enums from '../../utils/enums/Tarefas'
 
@@ -13,7 +14,7 @@ const BarraLateral = () => {
 
   return (
     <S.Aside>
-      <S.Input
+      <Input
         type="text"
         placeholder="Buscar"
         value={termo}

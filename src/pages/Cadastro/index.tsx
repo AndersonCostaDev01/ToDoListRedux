@@ -1,7 +1,13 @@
+import BarraLateral from '../../containers/BarraLateral'
+import Formulario from '../../containers/Formulario'
+
 export default function Cadastro() {
   return (
     <>
-      <h1>Cadastro</h1>
+      {/* Barra lateral */}
+      <BarraLateral />
+      {/* Formulario */}
+      <Formulario />
     </>
   )
 }
