@@ -38,3 +38,7 @@ export const BotaoSalvar = styled.button`
   font-weight: bold;
   cursor: pointer;
 `
+export const Opcao = styled.div`
+  display: inline-block;
+  text-transform: capitalize;
+`
