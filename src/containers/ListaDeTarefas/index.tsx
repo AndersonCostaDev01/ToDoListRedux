@@ -11,22 +11,24 @@ const ListaDeTarefas = () => {
   )
 
   const filtraTarefas = () => {
-    let tarefasFiltradas = itens
+    let tarefasFiltradas = [...itens]
+
     if (termo) {
       tarefasFiltradas = tarefasFiltradas.filter((item) =>
         item.titulo.toLowerCase().includes(termo.toLowerCase())
       )
-
-      if (criterio === 'prioridade') {
-        tarefasFiltradas = tarefasFiltradas.filter(
-          (item) => item.prioridade === valor
-        )
-      } else if (criterio === 'status') {
-        tarefasFiltradas = tarefasFiltradas.filter(
-          (item) => item.status === valor
-        )
-      }
     }
+
+    if (criterio === 'prioridade') {
+      tarefasFiltradas = tarefasFiltradas.filter(
+        (item) => item.prioridade === valor
+      )
+    } else if (criterio === 'status') {
+      tarefasFiltradas = tarefasFiltradas.filter(
+        (item) => item.status === valor
+      )
+    }
+
     return tarefasFiltradas
   }
 

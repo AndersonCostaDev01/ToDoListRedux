@@ -1,24 +1,32 @@
 import { FormEvent, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import * as S from '../../styles'
-import { Form, Opcoes, BotaoSalvar, Opcao } from './styles'
+import { Form, Opcoes, BotaoSalvar, Opcao, BotaoRetorno } from './styles'
 import * as enums from '../../utils/enums/Tarefas'
 import Tarefa from '../../models/Tarefa'
-import { idText } from 'typescript'
 import { cadastrar } from '../../store/reducers/tarefas'
+import { RootReducer } from '../../store'
 
 export default function Formulario() {
+  //
   // Criação do dispach para a aplicação do redux
   const dispatch = useDispatch()
+  //
   // Cria caminho para navegação
   const navigate = useNavigate()
+  //
   // Criação das variáveis
   const [titulo, setTitulo] = useState('')
   const [descricao, setDescricao] = useState('')
   const [prioridade, setPrioridade] = useState(enums.Prioridade.NORMAL)
+  const { itens } = useSelector((state: RootReducer) => state.tarefas)
 
+  function geraId() {
+    return Math.max(...itens.map((i) => i.id)) + 1 || 1
+  }
+  const id = geraId()
   function cadastraTarefa(evento: FormEvent) {
     evento.preventDefault()
     const tarefaParaAdicionar = new Tarefa(
@@ -26,7 +34,7 @@ export default function Formulario() {
       prioridade,
       enums.Status.PENDENTE,
       descricao,
-      9
+      id
     )
     dispatch(cadastrar(tarefaParaAdicionar))
     navigate('/')
@@ -68,7 +76,7 @@ export default function Formulario() {
         </Opcoes>
         <BotaoSalvar type="submit">Cadastrar</BotaoSalvar>
       </Form>
-      <Link to="/">Ir para lista de tarefas</Link>
+      <BotaoRetorno to="/">{'⇍'}</BotaoRetorno>
     </S.MainContainer>
   )
 }
