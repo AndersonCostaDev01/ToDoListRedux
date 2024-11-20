@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { Botao } from '../../components/BotaoAdicionar/styles'
 
 export const Form = styled.form`
   /* max-width: 547px; */
@@ -43,7 +41,4 @@ export const BotaoSalvar = styled.button`
 export const Opcao = styled.div`
   display: inline-block;
   text-transform: capitalize;
-`
-export const BotaoRetorno = styled(Botao)`
-  background-color: red;
 `

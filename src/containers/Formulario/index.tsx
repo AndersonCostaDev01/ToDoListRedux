@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import * as S from '../../styles'
-import { Form, Opcoes, BotaoSalvar, Opcao, BotaoRetorno } from './styles'
+import { Form, Opcoes, BotaoSalvar, Opcao } from './styles'
 import * as enums from '../../utils/enums/Tarefas'
 import Tarefa from '../../models/Tarefa'
 import { cadastrar } from '../../store/reducers/tarefas'
@@ -76,7 +76,6 @@ export default function Formulario() {
         </Opcoes>
         <BotaoSalvar type="submit">Cadastrar</BotaoSalvar>
       </Form>
-      <BotaoRetorno to="/">{'⇍'}</BotaoRetorno>
     </S.MainContainer>
   )
 }
